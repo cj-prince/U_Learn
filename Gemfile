@@ -17,6 +17,8 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+gem 'bootstrap', '~> 4.5.1'
+gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
