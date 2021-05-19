@@ -1,4 +1,66 @@
-<h1>Welcome</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<i class="fa fa-camera"></i>
-<i class="fa fa-camera-retro"></i>
+<h1 align='center'> Welcome</h1>
+<h2>A plat form to learn all you can to be valuable</h2>
+<p>Learn to be in demand and dangerous </p>
+<br>
+
+
+
+<div class="card-group">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><div class="fa fa-graduation-cap"></div></h5>
+            <p class="card-text"><%= Course.count %>online courses</p>
+            <p class="card-text"><small class="text-muted">Explore a variety of fresh topics</small></p>
+        </div>
+    </div>
+    <div class="card">
+    <div class="card-body">
+        <h5 class="card-title"><div class="fas fa-chalkboard-teacher"></div></h5>
+        <p class="card-text"><%= Course.distinct.count(:user_id) %> expect instructors</p>
+        <p class="card-text"><small class="text-muted">find the right instructor for you</small></p>
+    </div>
+    </div>
+    <div class="card">
+    <div class="card-body">
+        <h5 class="card-title"><div class="fas fa-user-alt"></div></h5>
+        <p class="card-text"><%= User.count %> active learners</p>
+        <p class="card-text"><small class="text-muted">join the knowledge sharing community</small></p>
+    </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> <div class="fas fa-infinity"></div></h5>
+            <p class="card-text">lifetime access.</p>
+            <p class="card-text"><small class="text-muted"> learn on your schedule</small></p>
+        </div>
+    </div>
+</div>
+
+
+<hr/>
+<h3>
+    Popular Courses
+    <div class="card-columns">
+        <% @courses.each do|course| %>
+          <%= render 'courses/course', course: course %>
+        <% end %>
+    </div>
+</h3>
+<hr/>
+<h3>
+    Top rated Courses
+    <div class="card-columns">
+        <% @courses.each do|course| %>
+          <%= render 'courses/course', course: course %>
+        <% end %>
+      </div>
+</h3>
+<hr/>
+<h3>
+    Most Recent
+    <div class="card-columns">
+        <% @latest_courses.each do|course| %>
+          <%= render 'courses/course', course: course %>
+        <% end %>
+      </div>
+</h3>
