@@ -1,4 +1,4 @@
-# User.create!(email: 'cj@gmail.com', password: 'ffffff', password_confirmation: 'ffffff')
+User.create!(email: 'cj@gmail.com', password: 'ffffff', password_confirmation: 'ffffff')
 
 30.times do
     Course.create!([{
