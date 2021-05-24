@@ -1,8 +1,10 @@
-<h3>Activity</h3>
-
-<% @activities.each do |activity| %>
-    <div class="row">
-        <div class="col md-3">
+<h3 align='center'>
+    Activity
+    <div class="badge badge-info"><%= @activities.count %> </div>
+</h3>
+<ul class="list-group">
+    <% @activities.each do |activity| %>
+    <li class="list-group-item">
         <%= activity.id %>
         <%= activity.trackable_type %>
         <%= activity.trackable_id %>
@@ -10,7 +12,6 @@
         <%= activity.key %>
         <%= activity.parameters %>
         <%= activity.owner %>
-        </div>
-    </div>
-
-<% end %>
+    </li>
+    <% end %>
+</ul>

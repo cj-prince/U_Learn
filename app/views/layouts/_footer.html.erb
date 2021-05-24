@@ -1,0 +1,30 @@
+<hr/>
+<footer>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4">
+                copyright
+                @
+                <%= Time.now.year %>
+                Udemy Course
+                <div class="row"></div>
+                <div class="fa fa-envelope"></div>
+                <%= mail_to "@cj@gmail.com" %>
+            </div>
+            <div class="col-md-4">
+                Privacy policy
+                <div class="row">
+                   Terms and Condition
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                About us
+                <div class="row">
+                    <%= link_to "U_Learn", new_course_path %>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<br/>
