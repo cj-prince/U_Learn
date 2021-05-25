@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Users role Assignment</h3>
+        <%= @user.email %>
+        <div class="card-body">
+            <%= simple_form_for @user do |f| %>
+                <%= f.collection_check_boxes :role_ids, Role.all, :id, :name %>
+                <%= f.error :role, class: 'text-danger' %>
+                <hr>
+                <%= f.button :submit, class:'btn btn-success' %>
+            <% end %>
+        <div class="card-footer">
+           <P><%= link_to "Cancel", users_path, class: "btn btn-danger" %></P> 
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
