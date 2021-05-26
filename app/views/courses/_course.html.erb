@@ -19,9 +19,11 @@
         <table >
             <tbody>
                 <tr>
-                  <td><%= link_to 'Show', course, class:'btn btn-sm btn-primary style="font-size: 0.8em;' %></td>
-                  <td><%= link_to 'Edit', edit_course_path(course),class:'btn btn-sm btn-warning style="font-size: 0.8em;' %></td>
-                  <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-sm btn-danger style="font-size: 0.8em;' %></td>
+                    <% if policy(course).edit? %>
+                        <td><%= link_to 'Edit', edit_course_path(course),class:'btn btn-sm btn-warning style="font-size: 0.8em;' %></td>
+                        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-sm btn-danger style="font-size: 0.8em;' %></td>
+                    
+                    <%end%>
                 </tr>
             </tbody>
           </table>

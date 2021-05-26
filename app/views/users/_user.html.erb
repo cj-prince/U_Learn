@@ -34,10 +34,12 @@
         <% user.roles.each do |role| %>
             <div class="badge badge-info"><%= role.name %></div>
         <% end %>
-        <div class="card-footer">
-            <%= link_to "Roles edit", edit_user_path(user), class: 'btn btn-sm btn-warning' %>
-        </div>
-
+        <% if policy(user).edit? %>
+            <div class="card-footer">
+                <%= link_to "Roles edit", edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+            </div>
+        <% end %>
+       
     </div>
 </div>
     
