@@ -1,14 +1,8 @@
-<%= search_form_for @q do |f| %>
-    <%= f.search_field :email_cont %>
-    <%= f.submit %>
-    <%= link_to users_path, class: 'btn btn-sm btn-secondary' do %>
-        <div class="fa fa-sync"></div>
-    <% end %>
-<% end %>
+
 <div class="card">
     <div class="card-hearder">
-        <div class="fa fa-user"></div>
-            <%= user.email %>
+        <div class="fa fa-user">  <%= link_to user.email, user_path(user) %> </div>
+            
         
     </div>
     <div class="card-footer">
@@ -39,7 +33,6 @@
                 <%= link_to "Roles edit", edit_user_path(user), class: 'btn btn-sm btn-warning' %>
             </div>
         <% end %>
-       
     </div>
 </div>
     
