@@ -3,13 +3,17 @@
         <div class="card-header">
             <%= link_to lesson.title, lesson %>
         </div>
-        <div class="card-body">
-            <%= lesson.content %>
-            <%= lesson.course %>
-        </div>
-        <div class="card-footer">
-            <%= link_to 'Edit', edit_lesson_path(lesson) %>
-            <%= link_to 'Destroy',lesson, method: :delete, data: {confirm: 'Are you sure?'} %>
-        </div>
+        <% if policy(lesson).show? %>
+            <div class="card-body">
+                <%= lesson.content %>
+                <%= lesson.course %>
+            </div>
+        <% end %>
+        <% if current_user && current_user.has_role?(:admin) %>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_lesson_path(lesson) %>
+                <%= link_to 'Destroy',lesson, method: :delete, data: {confirm: 'Are you sure?'} %>
+            </div>
+        <% end %>
     </div>
 <% end %>

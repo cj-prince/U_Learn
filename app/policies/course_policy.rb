@@ -20,10 +20,10 @@ class CoursePolicy < ApplicationPolicy
 
   
   def edit?
-    @user.has_role?:admin || @record.teacher = @teacher
+    @user.has_role?:admin || @record.teacher == @teacher
   end
   def update?
-    @user.has_role?:admin
+    @user.has_role?:admin 
   end
 
   def new?
@@ -38,4 +38,3 @@ class CoursePolicy < ApplicationPolicy
     @user.has_role?:admin
   end
 
-end

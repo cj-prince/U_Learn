@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: %i[ show edit update destroy ]
+  before_action :admin_user, only: :index
 
   # GET /lessons or /lessons.json
   def index
@@ -8,6 +9,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1 or /lessons/1.json
   def show
+    authorize @lesson
   end
 
   # GET /lessons/new
@@ -17,6 +19,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1/edit
   def edit
+    authorize @lesson
   end
 
   # POST /lessons or /lessons.json
@@ -36,6 +39,7 @@ class LessonsController < ApplicationController
 
   # PATCH/PUT /lessons/1 or /lessons/1.json
   def update
+    authorize @lesson
     respond_to do |format|
       if @lesson.update(lesson_params)
         format.html { redirect_to @lesson, notice: "Lesson was successfully updated." }
@@ -49,6 +53,7 @@ class LessonsController < ApplicationController
 
   # DELETE /lessons/1 or /lessons/1.json
   def destroy
+    authorize @lesson
     @lesson.destroy
     respond_to do |format|
       format.html { redirect_to lessons_url, notice: "Lesson was successfully destroyed." }
@@ -66,4 +71,8 @@ class LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(:title, :content, :course_id)
     end
+
+    def admin_user
+      redirect_to root_path unless current_user.has_role?(:admin)
+    end  
 end
