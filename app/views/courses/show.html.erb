@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'courses/course', course: @course %>
+<div class="row">
+    <div class="col-lg-6">
+        <%= render 'courses/course', course: @course %>
+        <%= link_to 'Edit', edit_course_path(@course) %> |
+        <%= link_to 'Back', courses_path %>
+    </div>
+    <div class="col-lg-6">
+        <%= render 'lessons/lesson', lesson: @lesson %>
+    </div>
+</div>
 
-
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
