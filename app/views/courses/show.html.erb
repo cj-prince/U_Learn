@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Courses', courses_path %>
+/
+<%= link_to @course.title, courses_path(@course) %>
+<p></p>
+
 <div class="row">
     <div class="col-lg-6">
         <%= render 'courses/course', course: @course %>
@@ -7,7 +12,9 @@
         <%= link_to 'Back', courses_path %>
     </div>
     <div class="col-lg-6">
+        <%= link_to "Add a lessons", new_lesson_path(course_id: @course.id)  %>
         <%= render 'lessons/lesson', lesson: @lesson %>
+        
     </div>
 </div>
 

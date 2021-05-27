@@ -23,7 +23,7 @@ class CoursePolicy < ApplicationPolicy
     @user.has_role?:admin || @record.teacher = @teacher
   end
   def update?
-    user.admin? or not record.published?
+    @user.has_role?:admin
   end
 
   def new?
