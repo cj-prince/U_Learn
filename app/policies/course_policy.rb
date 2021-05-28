@@ -38,3 +38,5 @@ class CoursePolicy < ApplicationPolicy
     @user.has_role?:admin
   end
 
+end
+
