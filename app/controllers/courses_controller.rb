@@ -1,10 +1,10 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :set_course, only: %i[new show edit update destroy ]
 
   # GET /courses or /courses.json
   def index
     if params[:title]
-      @courses = Course.where('title LIKE ?', "%#{params[:title]}%")
+      @pagy,@courses = pagy (Course.where('title LIKE ?', "%#{params[:title]}%"))
     else
       @pagy, @courses = pagy(Course.all)
     end

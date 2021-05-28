@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<% content_for :title do %>
+    ULearn
+    \
+    <%= @course.title %>
+<% end %>
 
 <%= link_to 'Courses', courses_path %>
 \
