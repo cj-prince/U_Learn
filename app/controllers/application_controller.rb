@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
     include PublicActivity::StoreController
 
+    include Pagy::Backend
+    
     private
 
     def user_activity

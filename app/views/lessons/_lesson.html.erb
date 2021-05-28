@@ -1,12 +1,12 @@
 <% @lessons.each do |lesson| %>
     <div class="card">
         <div class="card-header">
+            <div class="fa fa-check-square"></div>
             <%= link_to lesson.title, lesson %>
         </div>
         <% if policy(lesson).show? %>
             <div class="card-body">
                 <%= lesson.content %>
-                <%= lesson.course %>
             </div>
         <% end %>
         <% if current_user && current_user.has_role?(:admin) %>

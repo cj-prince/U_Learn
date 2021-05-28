@@ -6,8 +6,9 @@ class CoursesController < ApplicationController
     if params[:title]
       @courses = Course.where('title LIKE ?', "%#{params[:title]}%")
     else
-      @courses = Course.all
+      @pagy, @courses = pagy(Course.all)
     end
+    
   end
 
   # GET /courses/1 or /courses/1.json
