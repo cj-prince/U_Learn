@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title do %>
+    ULearn
+    \
+    All Enrollement
+<% end %>
+
+<h1>Enrollements</h1>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>User</th>
+        <th>Rating</th>
+        <th>Review</th>
+        <th>Price</th>
+        <th>Actions</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @enrollements.each do |enrollement| %>
+        <tr>
+          <td><%= enrollement.course_id %></td>
+          <td><%= enrollement.user_id %></td>
+          <td><%= enrollement.rating %></td>
+          <td><%= enrollement.review %></td>
+          <td><%= number_to_currency(enrollement.price) %></td>
+          <td>
+          <td><%= link_to 'Show', enrollement %></td>
+          <td><%= link_to 'Edit', edit_enrollement_path(enrollement) %></td>
+          <td><%= link_to 'Destroy', enrollement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Enrollement', new_enrollement_path %>

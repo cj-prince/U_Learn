@@ -1,0 +1,17 @@
+<% content_for :title do %>
+    ULearn
+    \
+    New enrollement
+<% end %>
+
+<div class="card">
+    <div class="card-header">
+        <h1>New Enrollement</h1>
+    </div>
+    <div class="card-body">
+        <%= render 'form', enrollement: @enrollement %>
+    </div>
+    <div class="card-footer">
+        <%= link_to 'Back', enrollements_path %>
+    </div>
+</div>

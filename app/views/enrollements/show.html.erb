@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @enrollement.course_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @enrollement.user_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @enrollement.rating %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @enrollement.review %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @enrollement.price %>
+</p>
+
+<%= link_to 'Edit', edit_enrollement_path(@enrollement) %> |
+<%= link_to 'Back', enrollements_path %>
