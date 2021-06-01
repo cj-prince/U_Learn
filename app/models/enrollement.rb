@@ -12,6 +12,9 @@ class Enrollement < ApplicationRecord
     user.to_s +" " + course.to_s
   end
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   protected
   def cant_subscribe_to_own_course
     if self.new_record?

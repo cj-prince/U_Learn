@@ -34,11 +34,17 @@ rolify
     updated_at > 2.minutes.ago
   end
 
+  def buy_course(course)
+    self.enrollements.create(course: course, price: course.price)
+  end
+  
   private
   def must_have_a_role
     unless roles.any?
       errors.add(:roles, "must have at least one role")
     end
   end
+
+  
 
 end

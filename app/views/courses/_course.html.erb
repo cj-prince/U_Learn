@@ -9,7 +9,7 @@
     <div class="card-footer">
         <div class="fa fa-globe"><%= course.language %></div>
         <div class="fa fa-signal"> <%= course.level %></div><br>
-        <div class="fa fa-tag"><%= number_to_currency(course.price) %></div>
+        <div class="fa fa-tag"><%= enrollement_button(course) %></div>
     </div>
     <div class="card-footer">
         <div class="fa fa-tasks"><%= course.lessons.count %> </div>
